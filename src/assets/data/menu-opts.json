@@ -1,0 +1,23 @@
+[
+    {
+      "icon": "chatbubble-outline",
+      "name": "Mensajes",
+      "redirectTo":"/mensajes"
+    },
+    {
+      "icon": "id-card-outline",
+      "name": "Perfil",
+      "redirectTo":"/perfil"
+    },
+    {
+      "icon": "list-outline",
+      "name": "Reservas",
+      "redirectTo":"/agenda"
+    },
+  
+    {
+      "icon": "settings-outline",
+      "name": "Configuracion",
+      "redirectTo":"/configuracion"
+    }
+  ]

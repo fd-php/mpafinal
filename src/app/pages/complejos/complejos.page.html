@@ -1,0 +1,174 @@
+<app-header titulo="Complejos"></app-header>
+
+<!-- autoHide=false *ngIf="complejoExist  && admin; else altaComplejo"  -->
+
+
+        <!-- <ion-content fullscreen>
+      
+          <ion-card *ngFor="let complejo of complejos">
+           
+            <ion-card-header>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <img src="assets/complejos/lajas.png" />
+                </ion-avatar>
+                <ion-label class="normal"> {{complejo.nombre}}</ion-label>  
+              </ion-item>
+              
+             
+              <ion-card-subtitle>
+                <ion-chip color="primary">
+                    <ion-icon color="warning" name="star"></ion-icon>
+                    <ion-icon color="warning" name="star"></ion-icon>
+                    <ion-icon color="warning" name="star"></ion-icon>
+                    <ion-icon color="warning" name="star"></ion-icon>
+                    <ion-icon color="warning" name="star"></ion-icon>
+                </ion-chip>
+            </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                  <ion-chip  outline color="warning">
+                    <ion-icon name="location-outline"></ion-icon>
+                    
+                      </ion-chip>
+                    {{complejo.direccion}}
+              </p>
+              <p>
+                
+                  <ion-chip outline color="dark">
+                    <ion-icon name="call-outline"></ion-icon>
+                    
+                    </ion-chip>
+                    {{complejo.telefono}}
+                
+              </p>
+              <p>
+                <a href="{{complejo.fb}}">
+                   <ion-chip outline color="primary">
+                    
+                      <ion-icon name="logo-facebook"></ion-icon>
+                  
+                    </ion-chip>
+                </a>
+                 
+   
+              <a href="{{complejo.ig}}">
+              <ion-chip   outline color="danger">
+                <ion-icon name="logo-instagram"></ion-icon>
+                
+                </ion-chip>
+              </a>
+            </p>
+                       
+              
+            </ion-card-content>
+            
+          </ion-card>
+         <ion-item class= "reaction">
+(click)= "like"()
+slot="icon-only" name "heart-outline"
+
+          </ion-content> -->
+
+          <!-- Complejo Seleccionado -->
+          <ion-card>
+            <img src="assets/complejos/lajas.png" />
+            <ion-card-header>
+              <ion-card-subtitle >
+                <!-- <app-mapa [coords]="actComplejo.ubicacion"> </app-mapa> -->
+                <ion-item>
+                   <!-- <app-rating rating="rating" complejo={{actComplejo.id}}  [(votoLikes)]="votoLikes" [(likes)]="actComplejo.likes"></app-rating>  -->
+                   <app-rating [rating]="rating" complejo={{actComplejo.id}} [votoLikes]= "votoLikes" [likes]="actComplejo.likes"></app-rating> 
+                  <!-- <ion-icon slot="start" name="star" *ngFor="let num of [1,2,3,4,5]" (click)="rate(num)" [ngStyle]="{'color: getColor(num)'} "></ion-icon> -->
+                  
+                 </ion-item>  
+                            </ion-card-subtitle>
+              <ion-card-title>{{actComplejo.nombre}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                  <!-- <ion-chip  outline color="warning">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <ion-spinner name="lines-small"
+                    *ngIf="cargandoGeo"></ion-spinner>
+                    </ion-chip>
+                    <ion-toggle slot="end"
+                    (ionChange)="getGeo()"
+                    ></ion-toggle> -->
+                    
+                   
+                    {{actComplejo.direccion}}
+              </p>
+              <p>
+                
+                  <ion-chip outline color="dark">
+                    <ion-icon name="call-outline"></ion-icon>
+                    
+                    </ion-chip>
+                    {{actComplejo.telefono}}
+                
+              </p>
+              <p>
+                <a href="{{actComplejo.fb}}">
+                   <ion-chip outline color="primary">
+                    
+                      <ion-icon name="logo-facebook"></ion-icon>
+                  
+                    </ion-chip>
+                </a>
+                 
+   
+              <a href="{{actComplejo.ig}}">
+              <ion-chip   outline color="danger">
+                <ion-icon name="logo-instagram"></ion-icon>
+                
+                </ion-chip>
+              </a>
+              <ion-chip color="dark" mode="ios" outline="true">
+               
+              
+              <ion-buttons >
+                  <ion-button (click)="giveLike()">
+                  <ion-icon *ngIf="!like" slot="icon-only"  name="heart-outline"></ion-icon>  
+                  <ion-icon *ngIf="like" slot="icon-only" color="danger"  name="heart"></ion-icon>
+                  <ion-label *ngIf="actComplejo.likes">{{actComplejo.likes}}</ion-label>
+                </ion-button>
+             
+               </ion-buttons>  
+              </ion-chip>
+            </p>
+              
+            </ion-card-content>
+            
+          </ion-card>
+          <ion-card>
+              <ion-card-title>Canchas</ion-card-title>
+              <ion-card-subtitle><i>Descripcion</i></ion-card-subtitle>
+            
+              <ion-card-content>
+                
+                {{actComplejo.canchas}}
+              </ion-card-content>
+            </ion-card>
+      
+            <ion-card>
+              <ion-card-title>Servicios</ion-card-title>
+              <ion-card-subtitle><i>Descripcion</i></ion-card-subtitle>
+            
+              <ion-card-content>
+                {{actComplejo.servicios}}
+              </ion-card-content>
+            </ion-card>
+        
+    
+ 
+   
+
+   
+    
+    
+    
+ 
+    
+ 

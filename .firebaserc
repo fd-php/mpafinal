@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mi-padel-agenda": {
+      "hosting": {
+        "app": [
+          "mi-padel-agenda"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mi-padel-agenda"
+  }
+}

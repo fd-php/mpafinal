@@ -1,0 +1,69 @@
+
+<ion-content>
+
+
+<ion-slides class="mainSlide" #slidePrincipal>
+    
+   
+<ion-slide>
+      
+  <ion-grid fixed>
+    <app-avatar-selector (avatarSel)="newPerfil.avatar = $event"></app-avatar-selector>
+           
+            <ion-row>
+                <ion-col>
+                    
+                    <ion-list>
+                        
+                        <ion-item>
+                        <ion-label>Nombre</ion-label>
+                        <ion-input name="nombre"
+                        [(ngModel)]="newPerfil.nombre"></ion-input>
+                                  
+                        </ion-item>
+
+                     <ion-item>
+                    <ion-label>Telefono</ion-label>
+                    <ion-input  
+                    name="telefono"
+                    [(ngModel)]="newPerfil.telefono"
+                                required></ion-input>
+                    </ion-item>
+                    
+                            <ion-item>
+                                <ion-label>Tipo de Usuario:</ion-label>
+                                <ion-select (ionChange)="seleccionarRol($event)"
+                                value="" multiple="false" placeholder="Seleccione Tipo" cancelText="Cancelar" okText="Confirmar" >
+                                   
+                                    <ion-select-option  *ngFor="let tipo of tipoRol" [value]= "tipo">{{tipo}}</ion-select-option>
+                                    
+                                </ion-select>
+                            </ion-item>
+                                               
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+            
+            <ion-row>
+            <ion-col>
+                <ion-button 
+                (click)="crearPerfil()"
+                            color="danger"
+                            shape="round"
+                           
+                            >
+                    Crear usuario
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        
+        
+    </ion-grid>
+
+
+  </ion-slide>
+
+</ion-slides>
+
+
+</ion-content>

@@ -1,3 +1,42 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+
+
+  <ion-menu side="start" menuId="first" type="push" contentId="main" color="danger">
+    <ion-header>
+      <ion-toolbar >
+        <ion-title color="danger" >Menu</ion-title>
+
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list color="danger">
+
+        <ion-item routerLink="/micomplejo">
+          Mi Complejo
+          <ion-icon  color="danger" slot="start" name="storefront-outline"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/agenda">
+          Agenda
+          <ion-icon color="danger" slot="start" name="calendar-outline"></ion-icon>
+        </ion-item>
+        <ion-item routerLink="/complejos">
+          complejos
+          <ion-icon color="danger"  slot="start" name="star-outline"></ion-icon>
+        </ion-item>
+        <ion-item disabled="true" routerLink="/torneos">
+          Torneos
+          <ion-icon color="danger"  slot="start" name="tennisball-outline"></ion-icon>
+        </ion-item>
+        
+        <!-- <ion-item *ngFor="let c of componentes | async "
+    [routerLink]="c.redirectTo" 
+    >
+    <ion-icon [name]="c.icon" slot="start" color="danger"></ion-icon>
+    {{c.name}}
+  </ion-item> -->
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

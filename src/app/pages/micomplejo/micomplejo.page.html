@@ -1,0 +1,213 @@
+<app-header titulo="Mi Complejo"></app-header>
+
+<!-- autoHide=false *ngIf="complejoExist  && admin; else altaComplejo"  -->
+
+
+        <ion-content fullscreen autoHide=false *ngIf="complejoExist && admin; else altaComplejo">
+      
+          <ion-card>
+            <img src="assets/complejos/lajas.png" />
+            <ion-card-header>
+              <ion-card-subtitle>
+                  <ion-chip color="primary">
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                      <ion-icon color="warning" name="star"></ion-icon>
+                  </ion-chip>
+              </ion-card-subtitle>
+              <ion-card-title>{{actComplejo.nombre}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <p>
+                  <ion-chip  outline color="warning">
+                    <ion-icon name="location-outline"></ion-icon>
+                    
+                    </ion-chip>
+                    {{actComplejo.direccion}}
+              </p>
+              <p>
+                
+                  <ion-chip outline color="dark">
+                    <ion-icon name="call-outline"></ion-icon>
+                    
+                    </ion-chip>
+                    {{actComplejo.telefono}}
+                
+              </p>
+              <p>
+                <a href="{{actComplejo.fb}}">
+                   <ion-chip outline color="primary">
+                    
+                      <ion-icon name="logo-facebook"></ion-icon>
+                  
+                    </ion-chip>
+                </a>
+                 
+   
+              <a href="{{actComplejo.ig}}">
+              <ion-chip   outline color="danger">
+                <ion-icon name="logo-instagram"></ion-icon>
+                
+                </ion-chip>
+              </a>
+            </p>
+              
+            </ion-card-content>
+            
+          </ion-card>
+          <ion-card>
+              <ion-card-title>Canchas</ion-card-title>
+              <ion-card-subtitle><i>Descripcion</i></ion-card-subtitle>
+            
+              <ion-card-content>
+                {{actComplejo.canchas}}
+              </ion-card-content>
+            </ion-card>
+      
+            <ion-card>
+              <ion-card-title>Servicios</ion-card-title>
+              <ion-card-subtitle><i>Descripcion</i></ion-card-subtitle>
+            
+              <ion-card-content>
+                {{actComplejo.servicios}}
+              </ion-card-content>
+            </ion-card>
+
+            <ion-row autoHide=false *ngIf="admin;">
+
+              <ion-col >
+               <ion-button 
+               
+                          id="open-modal"
+                           shape="round"
+                           expand="full"
+                           size="small"
+                           fill="outline"
+                           color="danger"
+                          >
+                   Editar Descripciones
+               </ion-button>
+               
+            <!-- <p>{{ message }}</p> -->
+            <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+              <ng-template >
+                <ion-header>
+                  <ion-toolbar>
+                    <ion-buttons slot="start">
+                      <ion-button (click)="cancel()">Cancelar</ion-button>
+                    </ion-buttons>
+                    <ion-title>Edita Descripcion</ion-title>
+                    <ion-buttons slot="end">
+                      <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+                    </ion-buttons>
+                  </ion-toolbar>
+                </ion-header>
+                <ion-content class="ion-padding">
+                  <ion-item>
+                    <ion-label position="stacked">Canchas</ion-label>
+                    <ion-input name="canchas" type="text" placeholder="{{actComplejo.canchas}}" [(ngModel)]="actComplejo.canchas"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label position="stacked">Servicios</ion-label>
+                    <ion-input name="servicios" type="text" placeholder="{{actComplejo.servicios}}" [(ngModel)]="actComplejo.servicios"></ion-input>
+                  </ion-item>
+                  <!-- <ion-item>
+                    <ion-label position="stacked">Servicios</ion-label>
+                    <ion-input type="text" placeholder="Your name" [(ngModel)]="telefono"></ion-input>
+                  </ion-item> -->
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+             </ion-col>
+       
+           </ion-row>
+          </ion-content>
+          <ng-template #altaComplejo>
+          <ion-grid fixed>
+           
+                   
+                    <ion-row>
+                        <ion-col>
+                            
+                            <ion-list>
+                                
+                                <ion-item>
+                                <ion-label>Nombre</ion-label>
+                                <ion-input name="nombre"
+                                [(ngModel)]="complejo.nombre"></ion-input>
+                                          
+                                </ion-item>
+        
+                             <ion-item>
+                            <ion-label>Telefono</ion-label>
+                            <ion-input  
+                            name="telefono"
+                            [(ngModel)]="complejo.telefono"
+                                        required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                              <ion-label>Direccion</ion-label>
+                              <ion-input  
+                              name="direccion"
+                              [(ngModel)]="complejo.direccion"
+                                          required></ion-input>
+                              </ion-item>
+                              
+                              <ion-item>
+                                <ion-label>Facebook</ion-label>
+                                <ion-input  
+                                name="fb"
+                                [(ngModel)]="complejo.fb"
+                                            required></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                  <ion-label>Instagram</ion-label>
+                                  <ion-input  
+                                  name="ig"
+                                  [(ngModel)]="complejo.ig"
+                                              required></ion-input>
+                                  </ion-item>
+                           
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                    
+                    <ion-row>
+                    <ion-col>
+                        <ion-button 
+                        (click)="crearComplejo()"
+                                    color="danger"
+                                    shape="round"
+                                   
+                                    >
+                            Crear Complejo
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+                
+                
+            </ion-grid>
+          
+          </ng-template>
+       
+     
+       
+       <!-- aca edicion-->
+       
+        <!--Aca editar imagenes-->
+     
+
+      
+    
+ 
+   
+
+   
+    
+    
+    
+ 
+    
+ 

@@ -1,0 +1,30 @@
+[
+    {
+      "icon": "storefront-outline",
+      "name": "Mi Complejo",
+      "redirectTo":"/micomplejo"
+    },
+        {
+      "icon": "calendar-outline",
+      "name": "Agenda",
+      "redirectTo":"/agenda"
+    },
+    {
+        "icon": "star-outline",
+        "name": "Favoritos",
+        "redirectTo":"/favoritos"
+      },
+  
+    {
+      "icon": "globe-outline",
+      "name": "Noticias",
+      "redirectTo":"/noticias"
+    },
+    {
+        "icon": "tennisball-outline",
+        "name": "Torneos",
+        "redirectTo":"/torneos"
+        
+      }
+
+  ]

@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    
+     <ion-buttons slot="start">
+     
+      <ion-button (click)="mostrarMenu()">
+        <ion-icon slot="icon-only" name="menu-outline" color="danger"></ion-icon>
+      </ion-button>
+          
+    </ion-buttons> 
+  
+
+
+    <ion-title color="danger">    <ion-chip>
+      <ion-avatar>
+          <img src="assets/avatars/{{actPerfil.avatar}}"/>
+      </ion-avatar>
+      <ion-label> {{actPerfil.nombre}}</ion-label>
+    </ion-chip></ion-title>
+
+    <!-- <ion-avatar slot="end">
+      
+      <img src="/assets/padel.jpg"/>
+    </ion-avatar>
+   -->
+   <ion-buttons slot="end">
+    <ion-button (click)="logout()">
+      <ion-icon slot="icon-only" name="log-out-outline" color="danger"></ion-icon>
+      
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
+
+ 
+  
+
+  
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      
+      <ion-card-subtitle>Bienvenido a </ion-card-subtitle>
+      <ion-card-title color="danger">Mi Padel Agenda</ion-card-title>
+    </ion-card-header>
+  
+  </ion-card>
+  <ion-list>
+    <!-- Searchbar with a placeholder -->
+    <ion-searchbar placeholder="Búsqueda de Complejos"></ion-searchbar>
+    
+    </ion-list>
+
+  <ion-slides pager="ios" pager="true">
+  
+    <ion-slide *ngFor="let slide of slides | async">
+      <ion-card mode="ios">
+        <img [src]="slide.img" alt="">
+        <ion-card-header>
+          <ion-card-subtitle>{{slide.titulo}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content >
+          {{slide.desc}}
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+<ion-tabs>
+  <ion-tab-bar  slot="bottom">
+    <ion-tab-button *ngFor="let c of componentes | async"
+    [routerLink]="c.redirectTo" >
+      <ion-icon [name]="c.icon" color="danger"></ion-icon>
+      <ion-label>{{c.name}}</ion-label>
+      
+      
+    </ion-tab-button>
+       
+  </ion-tab-bar>
+</ion-tabs>
+
+<!-- <ion-button routerLink="/perfil">
+    Perfil
+</ion-button>
+
+<ion-button routerLink="/complejos">
+ Complejos
+</ion-button>
+
+<ion-button routerLink="/mensajes">
+  Mensajes
+ </ion-button>
+
+ <ion-button routerLink="/configuracion">
+  Configuracion
+ </ion-button>  -->
+ 
+
+</ion-content>

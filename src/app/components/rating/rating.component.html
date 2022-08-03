@@ -1,0 +1,18 @@
+<ion-icon 
+slot="start" 
+name="star" 
+*ngFor="let num of [1,2,3,4,5]" 
+(click)="rate(num)" 
+[ngStyle]="{'color': getColor(num)} ">
+</ion-icon>
+<ion-label>{{votoLikes}}</ion-label>
+
+
+<!-- <ion-icon 
+slot="start" 
+name="star" 
+*ngFor="let num of [1,2,3,4,5]" 
+[ngStyle]="{'color': getColor(votoLikes)} ">
+</ion-icon>
+<ion-label>{{votoLikes}}</ion-label> -->
+

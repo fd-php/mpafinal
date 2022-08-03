@@ -1,0 +1,70 @@
+<app-header titulo="Perfil"></app-header>
+
+<ion-content>
+  <ion-grid fixed>
+ <ion-col size="4" text-center >
+  
+    <img src="assets/avatars/{{actPerfil.avatar}}">
+  
+  </ion-col>
+
+      <ion-row>
+        <ion-col>
+          
+            <ion-list  >
+              <ion-item>
+                <ion-label>Usuario: {{actPerfil.usuario}} </ion-label>
+                                       
+                </ion-item>
+              <ion-item>
+                <ion-label>Nombre: {{actPerfil.nombre}} </ion-label>
+                                        
+                </ion-item>
+                <ion-item>
+                  <ion-label>Telefono: {{actPerfil.telefono}} </ion-label>
+                 
+                  </ion-item>
+                  <ion-item *ngIf="actPerfil.rol === 1; else tipoRol;">
+                    <ion-label>Rol: Jugador </ion-label>
+                      
+                    </ion-item>
+
+            </ion-list>
+        </ion-col>
+      </ion-row>
+    <ion-item  *ngIf="actPerfil.rol === 1; else miComplejo;">
+      <ion-label class="normal">
+        Certificado
+      </ion-label>
+          <ion-buttons slot="end">
+        <ion-button>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="document-text-outline"></ion-icon>
+          </label>
+          
+          <input (change)="newCert()" id="file-upload" style="display:none;" type="file" accept="image/*">
+        </ion-button>
+      </ion-buttons>
+
+    
+  <img *ngIf="profile?.fileUrl; else placeholder_file;" [src]="profile.fileUrl"/>
+  <ng-template #placeholder_file>
+    <p>Certificado No Cargado</p>
+  </ng-template>
+</ion-item>
+</ion-grid>
+ 
+<ng-template #tipoRol>
+  <ion-item>
+  <ion-label>Rol: Administrador </ion-label>
+</ion-item>
+</ng-template>
+ 
+  <ng-template #miComplejo>
+    <ion-item>
+        <ion-label>Complejo:  </ion-label>
+    </ion-item>
+    
+  </ng-template>
+
+</ion-content>

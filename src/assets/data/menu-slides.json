@@ -1,0 +1,17 @@
+[
+  {
+    "img"   :"assets/slides/slide1.jpg",
+    "titulo": "Una Nueva Experiencia",
+    "desc"  : "Descubre todo lo nuevo que ofrece nuestra App de Padel"
+  },
+  {
+    "img"   :"assets/slides/slide2.jpg",
+    "titulo": "Conoce y Comparte",
+    "desc"  : "Has que todos puedan conocer la App para ser mas..."
+  },
+  {
+    "img"   :"assets/slides/slide3.jpg",
+    "titulo": "Recorre y Comenta",
+    "desc"  : "Recorre la App y comenta sobre nuevas ideas o mejorar las existentes"
+  }
+]
