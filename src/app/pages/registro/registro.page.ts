@@ -40,7 +40,7 @@ export class RegistroPage implements OnInit {
     this.showLoading();
     const data = this.newPerfil;
 
-    data.id = this.usuarioservice.getUserProfileId();
+    data.id = await this.usuarioservice.getUserProfileId();
 
     data.usuario = this.usuarioservice.getUserProfileMail();
 

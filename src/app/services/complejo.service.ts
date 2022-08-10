@@ -18,6 +18,7 @@ export class ComplejoService {
 
 
   private complejo: Complejo;
+  private promedio: number;
 
   constructor(public usuarioService: UsuarioService,
               public database: DatabaseService,
@@ -25,14 +26,16 @@ export class ComplejoService {
 
                 this.initComplejo();
                 this.loadComplejo();
+
                }
 
   loadComplejo(){
     if (this.complejoSubscriber){
       this.complejoSubscriber.unsubscribe();
+      
     }
     this.complejoSubscriber = this.database.get<Complejo>(this.path, this.uid).subscribe(res=>{
-      //console.log('LoadComplejo desde Service', res);
+      //console.log('LoadComplejo desde Service');
         if (res) {
           this.complejo = res;
           this.complejo$.next(this.complejo);
@@ -63,6 +66,19 @@ export class ComplejoService {
       };
       this.complejo$.next(this.complejo);
   }
+  loadPromedio()
+       {
+        const enlace = this.path+this.uid+'/rates';
+        this.database.getLength(enlace).subscribe( res =>{
+          if (res) {
+            this.promedio = this.complejo.likes / res.length;
+             console.log('Cantidad de votantes desde servicio', this.promedio);
+
+          }
+        });
+      return this.promedio;
+       }
+
   getComplejo(): Observable<Complejo>{
     setTimeout(()=>{
       this.complejo$.next(this.complejo);

@@ -2,6 +2,7 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 import { Rate } from 'src/app/interfaces/interfaces';
+import { ComplejoService } from 'src/app/services/complejo.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { DatabaseService } from '../../services/database.service';
 
@@ -28,7 +29,7 @@ export class RatingComponent implements OnInit {
   @Input() rating: number;
   @Input() complejo: string;
   @Input() likes: number;
-  @Input() votoLikes!: number;
+  @Input() votoLikes: number;
 
   @Output() ratingChange: EventEmitter<number> = new EventEmitter();
 
@@ -36,12 +37,13 @@ export class RatingComponent implements OnInit {
   ratesActual: number = null;
   suma: number = null;
   estado = false;
-//  votoLikes = null;
+  //votoLikes = null;
   divisor = null;
 
   constructor(
               private usuarioservice: UsuarioService,
               private database: DatabaseService,
+
 
               ) {
 
@@ -49,7 +51,7 @@ export class RatingComponent implements OnInit {
 
  async rate(index: number) {
       //Obtengo parametros
-      const uid =   this.usuarioservice.getUserProfileId();
+      const uid =   await this.usuarioservice.getUserProfileId();
       const path = 'Complejos/'+this.complejo+'/rates';
 
       this.rating = index;
@@ -85,8 +87,8 @@ export class RatingComponent implements OnInit {
      }
 
      //cargo el rate actual del usuario
-   loadRates(){
-    const uid =   this.usuarioservice.getUserProfileId();
+   async loadRates(){
+    const uid =   await this.usuarioservice.getUserProfileId();
     const path = 'Complejos/'+this.complejo+'/rates';
 
     this.database.get<Rate>(path, uid).subscribe( res =>{
@@ -130,8 +132,10 @@ export class RatingComponent implements OnInit {
 
    ngOnInit(): void {
     this.loadRates();
-    this.rating = 2;
+    console.log('desde rating', this.votoLikes);
+    this.rating = Math.round(this.votoLikes);
     this.ratingChange.emit(this.rating);
+
   }
 
 

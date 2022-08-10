@@ -6,6 +6,9 @@ import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 import { RatingComponent } from './rating/rating.component';
+import { HoralibreComponent } from './horalibre/horalibre.component';
+import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,17 +18,22 @@ import { RatingComponent } from './rating/rating.component';
     HeaderComponent,
     AvatarSelectorComponent,
     RatingComponent,
+    HoralibreComponent,
+    PublicacionesComponent
 
   ],
   exports:[
     HeaderComponent,
     AvatarSelectorComponent,
     RatingComponent,
+    HoralibreComponent,
+    PublicacionesComponent
 
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }

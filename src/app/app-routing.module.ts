@@ -46,10 +46,7 @@ const routes: Routes = [
     path: 'mensajes',
     loadChildren: () => import('./pages/mensajes/mensajes.module').then( m => m.MensajesPageModule)
   },
-  {
-    path: 'configuracion',
-    loadChildren: () => import('./pages/configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
-  },
+
   {
     path: 'agenda',
     loadChildren: () => import('./pages/agenda/agenda.module').then( m => m.AgendaPageModule)
@@ -63,6 +60,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/micomplejo/micomplejo.module').then( m => m.MicomplejoPageModule, )
     //loadChildren: () => import('./pages/micomplejo/micomplejo.module'), ...canActivate(isAdmin)
 
+  },
+  {
+    path: 'gestion',
+    loadChildren: () => import('./pages/gestion/gestion.module').then( m => m.GestionPageModule)
   },
 
 ];

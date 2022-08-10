@@ -11,13 +11,13 @@
     },
     {
       "icon": "list-outline",
-      "name": "Reservas",
-      "redirectTo":"/agenda"
+      "name": "Publicaciones",
+      "redirectTo":"/publicaciones"
     },
   
     {
       "icon": "settings-outline",
-      "name": "Configuracion",
-      "redirectTo":"/configuracion"
+      "name": "Gestion",
+      "redirectTo":"/gestion"
     }
   ]

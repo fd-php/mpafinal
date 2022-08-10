@@ -1,42 +1,46 @@
 <ion-app>
+  <ion-split-pane when="(min-width: 4500px)" contentId="main">
+    <!--  the side menu  -->
 
+    <ion-menu side="start" menuId="first" contentId="main" type="push" color="danger">
+      <ion-header>
+        <ion-toolbar color="danger">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <!-- Mi Compplejo -->
+          <ion-menu-toggle [routerLink]="['/agenda']">
+            <ion-item>Reservas
+              <ion-icon color="danger"  slot="start" name="calendar-outline"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+          <!-- Compplejos -->
+          <ion-menu-toggle [routerLink]="['/complejos']">
+            <ion-item>Complejos
+              <ion-icon color="danger"  slot="start" name="storefront-outline"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+          <!-- Perfil -->
+          <ion-menu-toggle [routerLink]="['/perfil']">
+            <ion-item>Perfil
+              <ion-icon color="danger"  slot="start" name="id-card-outline"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+          <!-- Torneos -->
+          <ion-menu-toggle>
+            <ion-item disabled="true">Torneos
+              <ion-icon color="danger"  slot="start" name="tennisball-outline"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
 
-  <ion-menu side="start" menuId="first" type="push" contentId="main" color="danger">
-    <ion-header>
-      <ion-toolbar >
-        <ion-title color="danger" >Menu</ion-title>
+ 
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
 
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ion-list color="danger">
-
-        <ion-item routerLink="/micomplejo">
-          Mi Complejo
-          <ion-icon  color="danger" slot="start" name="storefront-outline"></ion-icon>
-        </ion-item>
-        <ion-item routerLink="/agenda">
-          Agenda
-          <ion-icon color="danger" slot="start" name="calendar-outline"></ion-icon>
-        </ion-item>
-        <ion-item routerLink="/complejos">
-          complejos
-          <ion-icon color="danger"  slot="start" name="star-outline"></ion-icon>
-        </ion-item>
-        <ion-item disabled="true" routerLink="/torneos">
-          Torneos
-          <ion-icon color="danger"  slot="start" name="tennisball-outline"></ion-icon>
-        </ion-item>
-        
-        <!-- <ion-item *ngFor="let c of componentes | async "
-    [routerLink]="c.redirectTo" 
-    >
-    <ion-icon [name]="c.icon" slot="start" color="danger"></ion-icon>
-    {{c.name}}
-  </ion-item> -->
-      </ion-list>
-    </ion-content>
-  </ion-menu>
-
-  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

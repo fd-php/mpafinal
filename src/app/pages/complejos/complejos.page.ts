@@ -25,7 +25,7 @@ export class ComplejosPage implements OnInit, OnDestroy {
 
     rating = null;
     like= false;
-    votoLikes= 3.5;
+    votoLikes: number = null;
     divisor = null;
     //cargandoGeo = false;
     private enlace = 'Complejos/';
@@ -36,7 +36,6 @@ export class ComplejosPage implements OnInit, OnDestroy {
     public toastController: ToastController,
     public loadingController: LoadingController,
     public complejoService: ComplejoService,
-    //private notificationsService: NotificacionsService
     ) {
 
       this.initComplejo();
@@ -56,11 +55,12 @@ export class ComplejosPage implements OnInit, OnDestroy {
 
     loadComplejo(){
       this.complejoSubscriber = this.complejoService.getComplejo().subscribe( res=> {
-        //console.log('load complejo desde ', res);
+        // console.log('load complejo desde load.ts', res);
         this.actComplejo = res;
-        this.loadPromedio();
+        // this.loadPromedio();
 
       });
+
     }
       // getComplejo(){
 
@@ -102,21 +102,21 @@ export class ComplejosPage implements OnInit, OnDestroy {
         });
        }
 
-         loadPromedio()
-       {
-        const path = this.enlace+this.actComplejo.id+'/rates';
-        this.database.getLength(path).subscribe( res =>{
-          if (res) {
-             this.votoLikes = 0;
-             this.divisor = res.length;
+      //    loadPromedio()
+      //  {
+      //   const path = this.enlace+this.actComplejo.id+'/rates';
+      //   this.database.getLength(path).subscribe( res =>{
+      //     if (res) {
+      //        this.votoLikes = 0;
+      //        this.divisor = res.length;
 
-             this.votoLikes = this.actComplejo.likes / this.divisor;
-             console.log('Cantidad de votantes', this.votoLikes);
+      //        this.votoLikes = this.actComplejo.likes / this.divisor;
+      //        console.log('Cantidad de votantes', this.votoLikes);
 
-          }
-        });
+      //     }
+      //   });
 
-       }
+      //  }
 
         addLike(estado: boolean){
         const path = 'Complejos/';
@@ -162,6 +162,7 @@ export class ComplejosPage implements OnInit, OnDestroy {
       //  });
 
     ngOnInit() {
+     this.votoLikes = this.complejoService.loadPromedio();
 
     }
 

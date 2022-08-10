@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import {Auth,
         createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
-        signOut} from '@angular/fire/auth';
+        signOut } from '@angular/fire/auth';
 import { Firestore } from '@angular/fire/firestore';
 //import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -28,14 +28,15 @@ export class UsuarioService {
   //    return this.firestore, `${user.uid}`;
   //    }
 
-     getUserProfileId(){
-      const user =  this.auth.currentUser;
+     async getUserProfileId(){
+      const user =  await this.auth.currentUser;
       if (user === null){
         return null;
       }else {
           return `${user.uid}`;
         }
      }
+
 
      getUserProfileMail(){
       const user = this.auth.currentUser;
@@ -66,8 +67,6 @@ export class UsuarioService {
       return null;
     }
   }
-
-
 
   logout(){
     return signOut(this.auth);

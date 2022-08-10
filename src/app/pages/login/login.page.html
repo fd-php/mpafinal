@@ -50,12 +50,7 @@
                           [disabled]="!credentials.valid">
                 Login
               </ion-button>
-               <!-- <ion-button      type="button"
-                                color="danger"
-                                shape="round"
-                                (click)="register()">
-                        Crear usuario
-                    </ion-button> -->
+  
             </ion-col>
           </ion-row>
 
@@ -71,24 +66,6 @@
       
       <ion-grid fixed>
 
-            <!-- <ion-row>
-            <ion-col>
-                <h3>Seleccione Avatar</h3>
-            </ion-col>
-            </ion-row>
-
-            <ion-row>
-            <ion-col>
-                <ion-slides [options]="avatarSlide">
-                <ion-slide *ngFor="let avatar of avatars">
-                    <ion-img class="pick-avatar" 
-                            src="/assets/avatars/{{avatar.img}}"
-                            [ngClass]="{ 'pick-avatar-seleccionado': avatar.seleccionado }"
-                            (click)="seleccionarAvatar( avatar )"></ion-img>
-                </ion-slide>
-                </ion-slides>
-            </ion-col>
-            </ion-row> -->
         
             <form  [formGroup]="credentials" (ngSubmit)="register()">
                 <ion-row>

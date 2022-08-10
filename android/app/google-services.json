@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1055983304185",
+    "firebase_url": "https://mi-padel-agenda-default-rtdb.firebaseio.com",
+    "project_id": "mi-padel-agenda",
+    "storage_bucket": "mi-padel-agenda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055983304185:android:40600e1b0f63638e901128",
+        "android_client_info": {
+          "package_name": "com.kitaguay.mpa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055983304185-40t8gun9k8f67kfg9qbd800l2klscfeq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzGYOD4GdTJsxM2rvPr_baSJlwGNPGKSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055983304185-40t8gun9k8f67kfg9qbd800l2klscfeq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

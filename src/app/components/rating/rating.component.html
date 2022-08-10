@@ -5,7 +5,7 @@ name="star"
 (click)="rate(num)" 
 [ngStyle]="{'color': getColor(num)} ">
 </ion-icon>
-<ion-label>{{votoLikes}}</ion-label>
+<ion-label >{{votoLikes | number :'1.1-1' }}</ion-label>
 
 
 <!-- <ion-icon 

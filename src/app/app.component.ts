@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Componente, Perfil } from './interfaces/interfaces';
+
 import { DataService } from './services/data.service';
 import { DatabaseService } from './services/database.service';
+import { NotificacionsService } from './services/notificacions.service';
 import { UsuarioService } from './services/usuario.service';
 
 
@@ -16,12 +17,12 @@ export class AppComponent {
 
   //componentes: Componente[] = [];
 
-
   // eslint-disable-next-line @typescript-eslint/member-ordering
   constructor(
     private dataService: DataService,
     private usuarioService: UsuarioService,
     private database: DatabaseService,
+    private notificationsService: NotificacionsService,
 
   ) {}
 

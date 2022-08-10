@@ -29,6 +29,22 @@ constructor(
     return ref.doc(id).valueChanges();
   }
 
+  getCollection<tipo>(path: string) {
+    const collection = this.angularfirestore.collection<tipo>(path);
+    return collection.valueChanges();
+  }
+  g
+  getCollectionQuery<tipo>(path: string, parametro: string, condicion: any, busqueda: string) {
+    const collection = this.angularfirestore.collection<tipo>(path,
+      ref => ref.where( parametro, condicion, busqueda));
+    return collection.valueChanges();
+  }
+
+  deleteDoc(path: string, id: string) {
+    const collection = this.angularfirestore.collection(path);
+    return collection.doc(id).delete();
+  }
+
   getComplejos<tipo>(enlace: string){
     const ref = this.angularfirestore.collection<tipo>(enlace);
     return  ref.valueChanges();
@@ -45,5 +61,18 @@ constructor(
 
   createId(){
    return this.angularfirestore.createId();
+  }
+
+  getCollectionAll<tipo>(path, parametro: string, condicion: any, busqueda: string, startAt: any) {
+    if (startAt == null) {
+      startAt = new Date();
+    }
+    const collection = this.angularfirestore.collectionGroup<tipo>(path,
+      ref => ref.where( parametro, condicion, busqueda)
+                .orderBy('fechaCreacion', 'desc')
+                .limit(1)
+                .startAfter(startAt)
+      );
+    return collection.valueChanges();
   }
 }

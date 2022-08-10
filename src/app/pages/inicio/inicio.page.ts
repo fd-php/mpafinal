@@ -20,7 +20,7 @@ export class InicioPage implements OnInit {
   slides: Observable<Slides[]>;
 
   actPerfil: Perfil = {
-    id: this.usuarioService.getUserProfileId(),
+    id: '',
     usuario: '',
     nombre: '',
     telefono: '',
@@ -48,9 +48,9 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl('/', {replaceUrl: true});
   }
 
-  getPerfil(){
-
-    this.database.get<Perfil>(this.enlace,this.actPerfil.id ).subscribe( res => {
+ async getPerfil(){
+    const uid = await this.usuarioService.getUserProfileId();
+    this.database.get<Perfil>(this.enlace,uid ).subscribe( res => {
 
       if (res!==null){
 

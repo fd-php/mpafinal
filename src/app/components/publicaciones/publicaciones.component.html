@@ -1,0 +1,31 @@
+<ion-list>
+  <ion-list-header> Reservas Publicadas </ion-list-header>
+  
+
+  <!-- <ion-item  *ngFor="let reserva of reservas" >
+  
+    <ion-label>Dia: {{reserva.alquiler.dia | date: 'dd/MM' }}-{{reserva.alquiler.horas}}hs - {{reserva.alquiler.cancha}}</ion-label>
+    <ion-item [ngSwitch]="reserva.estadoAlquiler">
+      <ion-badge *ngSwitchCase="'Libre'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
+      <ion-badge color="warning" *ngSwitchCase="'Alquilada'" slot="end">{{reserva.estadoAlquiler}}</ion-badge>
+      <ion-badge ionChange="verCliente($event)" color="success" *ngSwitchCase="'Pagado'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
+      
+    </ion-item>
+    
+   
+   
+  </ion-item> -->
+
+  <ion-accordion-group *ngFor="let reserva of reservas">
+    <ion-accordion value="first">
+      <ion-item  [ngSwitch]="reserva.estadoAlquiler" slot="header" color="light">
+        <ion-label>Dia: {{reserva.alquiler.dia }}-{{reserva.alquiler.horas}}hs - {{reserva.alquiler.cancha}}</ion-label>
+        <ion-badge *ngSwitchCase="'Libre'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
+        <ion-badge color="warning" *ngSwitchCase="'Alquilada'" slot="end">{{reserva.estadoAlquiler}}</ion-badge>
+        <ion-badge ionChange="verCliente($event)" color="success" *ngSwitchCase="'Pagado'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
+      </ion-item>
+      <div class="ion-padding" slot="content"  *ngIf="reserva.uid !== null"> {{reserva.uid.usuario}} - {{reserva.uid.telefono}} </div>
+    </ion-accordion>
+    
+  </ion-accordion-group>
+</ion-list>

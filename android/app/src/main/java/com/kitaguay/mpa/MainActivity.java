@@ -1,4 +1,4 @@
-package com.example.app;
+package com.kitaguay.mpa;
 
 import com.getcapacitor.BridgeActivity;
 

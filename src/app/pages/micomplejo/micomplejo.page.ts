@@ -14,7 +14,7 @@ export class MicomplejoPage implements OnInit {
   @ViewChild(IonModal) modal: IonModal;
 
   actPerfil: Perfil = {
-    id: this.usuarioservice.getUserProfileId(),
+    id: '',
     usuario: '',
     nombre: '',
     telefono: '',
@@ -39,8 +39,8 @@ export class MicomplejoPage implements OnInit {
 
   actComplejo: Complejo = {
     idComplejo: '',
-    id: this.usuarioservice.getUserProfileId(),
-    usuario: this.usuarioservice.getUserProfileMail(),
+    id: '',
+    usuario: '',
     nombre: '',
     ubicacion: '',
     direccion: '',
@@ -64,9 +64,9 @@ export class MicomplejoPage implements OnInit {
     public toastController: ToastController,
     public loadingController: LoadingController) { }
 
-    getPerfil(){
-
-      this.database.get<Perfil>(this.enlaceP,this.actPerfil.id ).subscribe( res => {
+   async getPerfil(){
+      const uid = await this.usuarioservice.getUserProfileId();
+      this.database.get<Perfil>(this.enlaceP, uid ).subscribe( res => {
 
         if (res!==null){
           this.actPerfil = res;
@@ -84,9 +84,9 @@ export class MicomplejoPage implements OnInit {
       });
     }
 
-    getComplejo(){
-
-      this.database.get<Complejo>(this.enlace,this.actComplejo.id ).subscribe( res => {
+    async getComplejo(){
+      const uid = await this.usuarioservice.getUserProfileId()
+      this.database.get<Complejo>(this.enlace, uid ).subscribe( res => {
         if (res!==null){
           this.actComplejo = res;
               if(res.idComplejo!= null){
@@ -109,7 +109,7 @@ export class MicomplejoPage implements OnInit {
       const data = this.complejo;
       data.idComplejo = this.database.createId();
 
-      data.id = this.usuarioservice.getUserProfileId();
+      data.id = await this.usuarioservice.getUserProfileId();
 
       data.usuario = this.usuarioservice.getUserProfileMail();
 

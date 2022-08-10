@@ -50,4 +50,43 @@ export interface Rate {
 
 }
 
+export interface HoraLibre{
+    hlid: string;
+    dia: string;
+    horas: string;
+    cancha: string;
+    estadoP: EstadoPublicacion;
+    fechaCreacion: Date;
+}
+
+export interface Reserva {
+    rid: string;
+    cuid: string;
+    alquiler: AlquilerSolicitado[];
+    estadoAlquiler: EstadoAlquiler;
+    uid?: Perfil;
+    fechaPick?: string;
+
+}
+
+
+ export interface AlquilerSolicitado {
+     reserva: HoraLibre;
+     cantidad: number;
+ }
+
 export type TipoRol = 'jugador' | 'complejo';
+
+export type Turnos = 'Mañana' | 'Tarde' | 'Noche';
+
+export type TurnoM = '08' | '09' | '10' | '11' | '12' | '13';
+
+export type TurnoT = '14' | '15' | '16' | '17' | '18' ;
+
+export type TurnoN = '19' | '20' | '21' | '22' | '23' ;
+
+export type Canchas = 'Cancha 1' | 'Cancha 2' | 'Cancha 3' | 'Cancha 4';
+
+export type EstadoAlquiler = 'Libre' | 'Alquilada' | 'Pagado' | 'No Pagado';
+
+export type EstadoPublicacion = 'Publicado' | 'Publicar';
