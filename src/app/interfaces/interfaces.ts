@@ -1,3 +1,5 @@
+import { AnimationBuilder } from "@ionic/angular";
+
 export interface Componente {
     icon: string;
     name: string;
@@ -66,6 +68,7 @@ export interface Reserva {
     estadoAlquiler: EstadoAlquiler;
     uid?: Perfil;
     fechaPick?: string;
+    nombre: string;
 
 }
 
@@ -74,6 +77,7 @@ export interface Reserva {
      reserva: HoraLibre;
      cantidad: number;
  }
+
 
 export type TipoRol = 'jugador' | 'complejo';
 

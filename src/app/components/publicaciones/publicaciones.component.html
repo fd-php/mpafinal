@@ -1,5 +1,5 @@
 <ion-list>
-  <ion-list-header> Reservas Publicadas </ion-list-header>
+  <ion-list-header  class="ion-text-center"> Turnos Disponibles </ion-list-header>
   
 
   <!-- <ion-item  *ngFor="let reserva of reservas" >
@@ -18,13 +18,66 @@
 
   <ion-accordion-group *ngFor="let reserva of reservas">
     <ion-accordion value="first">
-      <ion-item  [ngSwitch]="reserva.estadoAlquiler" slot="header" color="light">
-        <ion-label>Dia: {{reserva.alquiler.dia }}-{{reserva.alquiler.horas}}hs - {{reserva.alquiler.cancha}}</ion-label>
-        <ion-badge *ngSwitchCase="'Libre'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
-        <ion-badge color="warning" *ngSwitchCase="'Alquilada'" slot="end">{{reserva.estadoAlquiler}}</ion-badge>
-        <ion-badge ionChange="verCliente($event)" color="success" *ngSwitchCase="'Pagado'" slot="end">{{reserva.estadoAlquiler}}</ion-badge> 
-      </ion-item>
-      <div class="ion-padding" slot="content"  *ngIf="reserva.uid !== null"> {{reserva.uid.usuario}} - {{reserva.uid.telefono}} </div>
+        
+                <ion-item slot="header" color="light"  >
+                  <ion-badge color="primary" mode="ios">{{reserva.alquiler.dia }}</ion-badge> 
+                  <ion-badge color="tertiary" mode="ios">{{reserva.alquiler.horas}}:00hs</ion-badge>
+                  <ion-badge slot="end" color="success" mode="ios">{{reserva.estadoAlquiler }}</ion-badge> 
+                  <ion-badge slot="end" color="secondary" mode="ios">{{reserva.nombre}}</ion-badge>
+             </ion-item>
+            
+             <div class="ion-padding" slot="content"  *ngIf="reserva.uid !== null && admin === 2; else complejo">
+               {{reserva.uid.usuario}} - {{reserva.uid.telefono}} 
+               <ion-badge slot="end" color="primary" mode="ios">{{reserva.alquiler.cancha }}</ion-badge> 
+              </div>
+             
+             <ng-template #complejo >
+              <div class="ion-padding" slot="content"  *ngIf="admin === 2; else usuario">
+                <ion-item  >
+                
+                  
+                  <ion-segment color="secondary">
+                    <!-- <ion-segment-button  value="ubicacion" (click)="verUbicacion($event)">
+                      <ion-icon color="tertiary"  name="map-outline"></ion-icon> -->
+                      <ion-segment-button disabled="true">
+                        <!-- <ion-label>{{reserva.estadoAlquiler}}</ion-label> -->
+                        <ion-badge  color="warning" mode="ios">Push</ion-badge> 
+                    </ion-segment-button>
+                    <ion-segment-button >
+                      <ion-badge color="primary" mode="ios">{{reserva.alquiler.cancha }}</ion-badge> 
+                    </ion-segment-button>
+                    <ion-segment-button value="alquilar" (click)="quitarReserva(reserva)">
+                      <ion-icon color="danger" name="trash-outline"></ion-icon>
+                    </ion-segment-button>
+                  </ion-segment>
+          
+                   </ion-item>
+              </div>
+              <ng-template  #usuario>
+               <div class="ion-padding" slot="content">
+                 <ion-item  >
+                
+                  
+               <ion-segment color="secondary">
+                 <ion-segment-button  value="ubicacion" (click)="presentPopover($event)">
+                   <ion-icon color="tertiary"  name="map-outline"></ion-icon>
+                   
+                 </ion-segment-button>
+                 <ion-segment-button  value="cancha" (click)="verCancha(reserva.alquiler.cancha )">
+                   <ion-icon color="success" name="tennisball-outline"></ion-icon>
+                 </ion-segment-button>
+                 <ion-segment-button value="alquilar" (click)="alquilar(reserva)">
+                   <ion-icon color="danger" name="card-outline"></ion-icon>
+                 </ion-segment-button>
+               </ion-segment>
+       
+                </ion-item>
+                  
+                                
+                </div>
+             </ng-template>
+            </ng-template>
+      
     </ion-accordion>
     
   </ion-accordion-group>

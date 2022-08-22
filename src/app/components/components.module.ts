@@ -13,13 +13,15 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
     AvatarSelectorComponent,
     RatingComponent,
     HoralibreComponent,
-    PublicacionesComponent
+    PublicacionesComponent,
+
 
   ],
   exports:[

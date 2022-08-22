@@ -1,0 +1,13 @@
+.custom-popover {
+    --max-height: 200px;
+    --backdrop-opacity: 0.6;
+    &::part(backdrop){
+
+    }
+    &::part(arrow){
+
+    }
+    &::part(content){
+        
+    }
+}

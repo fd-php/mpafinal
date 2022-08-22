@@ -95,7 +95,7 @@ export class ReservaService {
     estadoAlquiler: 'Libre',
     uid: this.usuario,
     fechaPick: '',
-
+    nombre:'',
       };
       this.reserva$.next(this.reserva);
   }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+
 import {IonicStorageModule} from '@ionic/storage-angular';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -15,6 +16,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {provideStorage,getStorage} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire/compat';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+// import { OneSignal } from '@awesome-cordova-plugins/onesignal/ngx';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     provideDatabase(() => getDatabase()),
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

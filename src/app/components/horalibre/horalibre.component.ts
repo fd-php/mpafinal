@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 import { AlertController, LoadingController, MenuController, ToastController } from '@ionic/angular';
 import { Console } from 'console';
 
-import { Canchas, HoraLibre, TurnoM, TurnoN, Turnos, TurnoT, EstadoPublicacion } from 'src/app/interfaces/interfaces';
+import { Canchas, HoraLibre, TurnoM, TurnoN, Turnos, TurnoT, EstadoPublicacion, Perfil } from 'src/app/interfaces/interfaces';
 import { DatabaseService } from 'src/app/services/database.service';
 import { ReservaService } from 'src/app/services/reserva.service';
 import { UsuarioService } from '../../services/usuario.service';
 import { Subscription } from 'rxjs';
+import { Complejo } from '../../interfaces/interfaces';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class HoralibreComponent implements OnInit, OnDestroy {
   cancha: string;
   horas: any;
   today: string;
+  nombreComplejo: string;
 
   handlerMessage = '';
   roleMessage = '';
@@ -142,9 +144,17 @@ export class HoralibreComponent implements OnInit, OnDestroy {
   async publicarHoraLibre(hora: HoraLibre){
 
     // console.log(hora);
+  
 
     const cuid = await this.usuarioservice.getUserProfileId();
     const path = this.path+ cuid +'/horaslibres';
+
+    this.database.get<Complejo>(this.path, cuid).subscribe(res => {
+      if (res){
+        this.nombreComplejo = res.nombre;
+      console.log ('Nombre Complejo', res.nombre);
+      }
+    });
 
     const data ={
     estadoP: 'Publicado'
@@ -177,6 +187,7 @@ export class HoralibreComponent implements OnInit, OnDestroy {
       estadoAlquiler: 'Libre',
       uid: null,
       fechaPick: '',
+      nombre: this.nombreComplejo,
 
   };
 
@@ -199,7 +210,7 @@ export class HoralibreComponent implements OnInit, OnDestroy {
   }
 
   async deleteHoraLibre(horaLibre: HoraLibre) {
-        this.showLoading();
+        //this.showLoading();
         const cuid = await this.usuarioservice.getUserProfileId();
 
         //console.log (horaLibre);
@@ -283,7 +294,7 @@ export class HoralibreComponent implements OnInit, OnDestroy {
 
         }
         seleccionarDia(event: any){
-          this.newHoraLibre.dia = event.detail.value;
+          this.newHoraLibre.dia = event.detail.value.slice(0,5);
           console.log('dia', this.newHoraLibre.dia);
         }
 
