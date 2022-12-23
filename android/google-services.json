@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "463465332086",
+    "project_id": "mpa-test-255ae",
+    "storage_bucket": "mpa-test-255ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463465332086:android:0ee97ba979acf524ac4e57",
+        "android_client_info": {
+          "package_name": "com.kitaguay.mpa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463465332086-5qofhuh10est2v7bnb6721hm1i491igv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNEily_4buR-o-hPwabBYowyfhraPAWrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463465332086-5qofhuh10est2v7bnb6721hm1i491igv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

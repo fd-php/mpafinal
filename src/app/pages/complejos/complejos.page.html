@@ -87,7 +87,7 @@ slot="icon-only" name "heart-outline"
               <ion-card-title>{{actComplejo.nombre}}</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              <p>
+              
                   <!-- <ion-chip  outline color="warning">
                     <ion-icon name="location-outline"></ion-icon>
                     <ion-spinner name="lines-small"
@@ -97,19 +97,15 @@ slot="icon-only" name "heart-outline"
                     (ionChange)="getGeo()"
                     ></ion-toggle> -->
                     
-                   
+                    <ion-item>
                     {{actComplejo.direccion}}
-              </p>
-              <p>
-                
-                  <ion-chip outline color="dark">
-                    <ion-icon name="call-outline"></ion-icon>
+                        
+                  
+                </ion-item>
                     
-                    </ion-chip>
-                    {{actComplejo.telefono}}
                 
-              </p>
-              <p>
+             
+              
                 <a href="{{actComplejo.fb}}">
                    <ion-chip outline color="primary">
                     
@@ -125,7 +121,11 @@ slot="icon-only" name "heart-outline"
                 
                 </ion-chip>
               </a>
-              <ion-chip color="dark" mode="ios" outline="true">
+              <ion-chip outline color="dark">
+                <ion-icon name="call-outline"></ion-icon>
+                 </ion-chip>
+                {{actComplejo.telefono}}
+              <!-- <ion-chip color="dark" mode="ios" outline="true">
                
               
               <ion-buttons >
@@ -136,8 +136,8 @@ slot="icon-only" name "heart-outline"
                 </ion-button>
              
                </ion-buttons>  
-              </ion-chip>
-            </p>
+              </ion-chip> -->
+            
               
             </ion-card-content>
             

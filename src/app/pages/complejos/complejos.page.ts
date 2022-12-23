@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 
 import { Subscription } from 'rxjs';
 import { ComplejoService } from '../../services/complejo.service';
-import { NotificacionsService } from 'src/app/services/notificacions.service';
+
 
 @Component({
   selector: 'app-complejos',
@@ -176,7 +176,7 @@ export class ComplejosPage implements OnInit, OnDestroy {
     initComplejo(){
       this.actComplejo = {
         idComplejo: '',
-        id: 'rS9aHBuCp8Wu3Y67w9CQVrLMN8l1',
+        id: '2AdS2e1J6DXE8NMqwBSFOO7lKSS2',
         usuario: '',
         nombre: '',
         ubicacion: '',

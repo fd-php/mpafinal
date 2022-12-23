@@ -19,7 +19,7 @@ export class StorageService {
 
 getUserProfile(){
   const user = this.auth.currentUser;
-  const userDocRef = doc(this.firestore, `Perfiles/${user.uid}/certificados/${user.uid}`);
+  const userDocRef = doc(this.firestore, `users/${user.uid}/certificados/${user.uid}`);
   return docData(userDocRef);
 }
 
@@ -33,7 +33,7 @@ async uploadFile(cameraFile: Photo){
 
     const fileUrl = await getDownloadURL(storageRef);
 
-    const userDocRef = doc(this.firestore, `Perfiles/${user.uid}/certificados/${user.uid}`);
+    const userDocRef = doc(this.firestore, `users/${user.uid}/certificados/${user.uid}`);
 
     await setDoc(userDocRef, {
       fileUrl,

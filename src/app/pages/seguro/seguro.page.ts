@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SeguroPage implements OnInit {
 
+  qrCodeString = 'aqui mensaje en qr';
+
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

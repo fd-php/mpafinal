@@ -20,9 +20,9 @@ export class InicioPage implements OnInit {
   slides: Observable<Slides[]>;
 
   actPerfil: Perfil = {
-    id: '',
-    usuario: '',
-    nombre: '',
+    uid: '',
+    email: '',
+    name: '',
     telefono: '',
     avatar: '',
     rol: 1,
@@ -30,7 +30,7 @@ export class InicioPage implements OnInit {
 
   admin = false;
 
-  private enlace = 'Perfiles/';
+  private enlace = 'users/';
 
 
   constructor(private menuCtrl: MenuController,

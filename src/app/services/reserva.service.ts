@@ -78,7 +78,7 @@ export class ReservaService {
 
  async getInfoUser() {
      const uid = await this.getUid();
-     const path = 'Perfiles';  
+     const path = 'users';  
      this.database.get<Perfil>(path, uid).subscribe( res => {
            if (res !== undefined) {
                  this.usuario = res;

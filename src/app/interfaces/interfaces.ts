@@ -1,4 +1,4 @@
-import { AnimationBuilder } from "@ionic/angular";
+//import { AnimationBuilder } from "@ionic/angular";
 
 export interface Componente {
     icon: string;
@@ -13,9 +13,9 @@ export interface Slides {
 }
 
 export interface Perfil {
-    id: string;
-    usuario: string;
-    nombre: string;
+    uid: string;
+    email: string;
+    name: string;
     telefono: string;
     avatar: string;
     rol: number;

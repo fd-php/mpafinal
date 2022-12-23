@@ -152,8 +152,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "app:build:production",
-            "firebaseProject": "mi-padel-agenda",
-            "firebaseHostingSite": "mi-padel-agenda"
+            "firebaseProject": "mpa-test-255ae",
+            "firebaseHostingSite": "mpa-test-255ae"
           }
         }
       }

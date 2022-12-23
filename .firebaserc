@@ -1,14 +1,14 @@
 {
   "targets": {
-    "mi-padel-agenda": {
+    "mpa-test-255ae": {
       "hosting": {
         "app": [
-          "mi-padel-agenda"
+          "mpa-test-255ae"
         ]
       }
     }
   },
   "projects": {
-    "default": "mi-padel-agenda"
+    "default": "mpa-test-255ae"
   }
 }

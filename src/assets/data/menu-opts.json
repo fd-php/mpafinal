@@ -2,7 +2,7 @@
     {
       "icon": "chatbubble-outline",
       "name": "Mensajes",
-      "redirectTo":"/mensajes"
+      "redirectTo":"/home"
     },
     {
       "icon": "id-card-outline",
@@ -12,7 +12,7 @@
     {
       "icon": "list-outline",
       "name": "Publicaciones",
-      "redirectTo":"/publicaciones"
+      "redirectTo":"/seguro"
     },
   
     {

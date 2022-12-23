@@ -7,7 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { SeguroPageRoutingModule } from './seguro-routing.module';
 
 import { SeguroPage } from './seguro.page';
-import { ComponentsModule } from '../../components/components.module';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { QRCodeModule } from 'angularx-qrcode';
+
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     SeguroPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    QRCodeModule
 
   ],
   declarations: [SeguroPage]

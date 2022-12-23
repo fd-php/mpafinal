@@ -42,10 +42,10 @@ const routes: Routes = [
     path: 'seguro',
     loadChildren: () => import('./pages/seguro/seguro.module').then( m => m.SeguroPageModule)
   },
-  {
-    path: 'mensajes',
-    loadChildren: () => import('./pages/mensajes/mensajes.module').then( m => m.MensajesPageModule)
-  },
+  // {
+  //   path: 'mensajes',
+  //   loadChildren: () => import('./pages/mensajes/mensajes.module').then( m => m.MensajesPageModule)
+  // },
 
   {
     path: 'agenda',
@@ -65,6 +65,11 @@ const routes: Routes = [
     path: 'gestion',
     loadChildren: () => import('./pages/gestion/gestion.module').then( m => m.GestionPageModule)
   },
+  {
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+  },
+
 
 ];
 

@@ -1,18 +1,20 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.kitaguay.mpa',
-  appName: 'mpa',
+  appId: 'com.mpachat.mpa',
+  appName: 'mpachat',
   webDir: 'www',
   bundledWebRuntime: false,
 
+
   plugins: {
-    LocalNotifications: {
-      smallIcon: 'ic_stat_icon_config_sample',
-      iconColor: '#488AFF',
-      sound: 'beep.wav',
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    PushNotifications: {
+      presentationOptions: ['badge', 'sound', 'alert'],
     },
   },
 };
 
 export default config;
+
+

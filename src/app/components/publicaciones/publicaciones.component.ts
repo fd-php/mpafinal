@@ -26,9 +26,9 @@ export class PublicacionesComponent implements OnInit {
   loading: any;
 
   actPerfil: Perfil = {
-    id: '',
-    usuario: '',
-    nombre: '',
+    uid: '',
+    email: '',
+    name: '',
     telefono: '',
     avatar: '',
     rol: null,
@@ -38,7 +38,7 @@ export class PublicacionesComponent implements OnInit {
   estadoAlquiler = '';
   admin= null;
 
-  private enlaceP = 'Perfiles/';
+  private enlaceP = 'users/';
   private path = '/Reservas';
 
   constructor(
@@ -217,6 +217,29 @@ async alquilar(reserva: Reserva) {
 });
 await alert.present();
 }
+
+async sendPush() {
+  console.log('sendPush');
+
+  const alert = await this.alertController.create({
+    backdropDismiss: false,
+    cssClass: 'normal',
+    header: 'Push Notification',
+    message: ' <strong>Enviar Notificacion</strong>',
+    buttons: [
+      {
+
+        text: 'Enviar',
+        handler: () => {
+          console.log('Confirm Okay');
+          this.presentToast('Notificacion Enviada', 2000);
+          this.alertController.dismiss();
+         }
+      }
+    ]
+  });
+  await alert.present();
+  }
 
 async showLoading() {
   this.loading = await this.loadingController.create({

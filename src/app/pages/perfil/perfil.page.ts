@@ -14,9 +14,9 @@ import { LoadingController, AlertController } from '@ionic/angular';
 export class PerfilPage implements OnInit {
 
   actPerfil: Perfil = {
-    id: '',
-    usuario: '',
-    nombre: '',
+    uid: '',
+    email: '',
+    name: '',
     telefono: '',
     avatar: '',
     rol: 1,
@@ -25,7 +25,7 @@ export class PerfilPage implements OnInit {
 
   profile = null;
 
-  private enlace = 'Perfiles/';
+  private enlace = 'users/';
 
 
   constructor(public database: DatabaseService,
@@ -42,7 +42,7 @@ export class PerfilPage implements OnInit {
  }
 
     async getPerfil(){
-      const uid = await this.usuarioservice.getUserProfileId()
+      const uid = await this.usuarioservice.getUserProfileId();
       this.database.get<Perfil>(this.enlace, uid ).subscribe( res => {
       this.actPerfil = res;
       });

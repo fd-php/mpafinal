@@ -9,6 +9,8 @@ import { RatingComponent } from './rating/rating.component';
 import { HoralibreComponent } from './horalibre/horalibre.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { FormsModule } from '@angular/forms';
+import { EmptyScreenComponent } from './empty-screen/empty-screen/empty-screen.component';
+import { ChatBoxComponent } from './chat-box/chat-box/chat-box.component';
 
 
 
@@ -21,6 +23,8 @@ import { FormsModule } from '@angular/forms';
     RatingComponent,
     HoralibreComponent,
     PublicacionesComponent,
+    EmptyScreenComponent,
+    ChatBoxComponent
 
 
   ],
@@ -29,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     AvatarSelectorComponent,
     RatingComponent,
     HoralibreComponent,
-    PublicacionesComponent
+    PublicacionesComponent,
+    EmptyScreenComponent
 
   ],
   imports: [

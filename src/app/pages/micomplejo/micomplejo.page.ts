@@ -14,9 +14,9 @@ export class MicomplejoPage implements OnInit {
   @ViewChild(IonModal) modal: IonModal;
 
   actPerfil: Perfil = {
-    id: '',
-    usuario: '',
-    nombre: '',
+    uid: '',
+    email: '',
+    name: '',
     telefono: '',
     avatar: '',
     rol: null,
@@ -56,7 +56,7 @@ export class MicomplejoPage implements OnInit {
   loading: any;
 
   private enlace = 'Complejos/';
-  private enlaceP = 'Perfiles/';
+  private enlaceP = 'users/';
 
   constructor(public database: DatabaseService,
     public usuarioservice: UsuarioService,

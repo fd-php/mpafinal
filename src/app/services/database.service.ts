@@ -33,7 +33,7 @@ constructor(
     const collection = this.angularfirestore.collection<tipo>(path);
     return collection.valueChanges();
   }
-  g
+
   getCollectionQuery<tipo>(path: string, parametro: string, condicion: any, busqueda: string) {
     const collection = this.angularfirestore.collection<tipo>(path,
       ref => ref.where( parametro, condicion, busqueda));

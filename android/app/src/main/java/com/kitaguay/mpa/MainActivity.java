@@ -1,4 +1,4 @@
-package com.kitaguay.mpa;
+package com.mpachat.mpa;
 
 import com.getcapacitor.BridgeActivity;
 

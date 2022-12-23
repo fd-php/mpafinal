@@ -27,7 +27,7 @@
              </ion-item>
             
              <div class="ion-padding" slot="content"  *ngIf="reserva.uid !== null && admin === 2; else complejo">
-               {{reserva.uid.usuario}} - {{reserva.uid.telefono}} 
+               {{reserva.uid.email}} - {{reserva.uid.telefono}} 
                <ion-badge slot="end" color="primary" mode="ios">{{reserva.alquiler.cancha }}</ion-badge> 
               </div>
              
@@ -39,7 +39,7 @@
                   <ion-segment color="secondary">
                     <!-- <ion-segment-button  value="ubicacion" (click)="verUbicacion($event)">
                       <ion-icon color="tertiary"  name="map-outline"></ion-icon> -->
-                      <ion-segment-button disabled="true">
+                      <ion-segment-button value="sendPush" (click)="sendPush()">
                         <!-- <ion-label>{{reserva.estadoAlquiler}}</ion-label> -->
                         <ion-badge  color="warning" mode="ios">Push</ion-badge> 
                     </ion-segment-button>

@@ -1,5 +1,19 @@
 <app-header titulo="Seguro"></app-header>
 
 <ion-content>
+    
+    <ion-card class="iont-text-center">
+        
+        <ion-card-content>
+        
+            <qrcode 
+                    [qrdata]="qrCodeString" 
+                    [width]="256"
+                    [errorCorrectionLevel]="'M'"
+            ></qrcode>
+        
+        </ion-card-content>
+    
+    </ion-card>
 
 </ion-content>

@@ -13,7 +13,7 @@ export class ComplejoService {
   complejo$ = new Subject <Complejo>();
 
   path = 'Complejos/';
-  uid = 'rS9aHBuCp8Wu3Y67w9CQVrLMN8l1';
+  uid = '2AdS2e1J6DXE8NMqwBSFOO7lKSS2';
   complejoSubscriber: Subscription;
 
 
@@ -32,7 +32,7 @@ export class ComplejoService {
   loadComplejo(){
     if (this.complejoSubscriber){
       this.complejoSubscriber.unsubscribe();
-      
+
     }
     this.complejoSubscriber = this.database.get<Complejo>(this.path, this.uid).subscribe(res=>{
       //console.log('LoadComplejo desde Service');
@@ -51,7 +51,7 @@ export class ComplejoService {
   initComplejo(){
     this.complejo = {
       idComplejo: '',
-      id: 'rS9aHBuCp8Wu3Y67w9CQVrLMN8l1',
+      id: '2AdS2e1J6DXE8NMqwBSFOO7lKSS2',
       usuario: '',
       nombre: '',
       ubicacion: '',
@@ -72,7 +72,10 @@ export class ComplejoService {
         this.database.getLength(enlace).subscribe( res =>{
           if (res) {
             this.promedio = this.complejo.likes / res.length;
-             console.log('Cantidad de votantes desde servicio', this.promedio);
+             console.log('Cantidad de votantes desde servicio',
+             this.promedio, 'likes:', this.complejo.likes,
+             'length:', res.length);
+             console.log(enlace);
 
           }
         });

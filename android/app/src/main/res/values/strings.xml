@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">mpa</string>
+    <string name="app_name">mpachat</string>
     <string name="title_activity_main">mpa</string>
-    <string name="package_name">com.kitaguay.mpa</string>
-    <string name="custom_url_scheme">com.kitaguay.mpa</string>
+    <string name="package_name">com.mpachat.mpa</string>
+    <string name="custom_url_scheme">com.mpachat.mpa</string>
 </resources>

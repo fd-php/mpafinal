@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { DataService } from './services/data.service';
 import { DatabaseService } from './services/database.service';
-//import { NotificacionsService } from './services/notificacions.service';
+import { PushService } from './services/push.service';
 import { UsuarioService } from './services/usuario.service';
 
 
@@ -24,7 +24,7 @@ export class AppComponent {
     private dataService: DataService,
     private usuarioService: UsuarioService,
     private database: DatabaseService,
-   // private notificationsService: NotificacionsService,
+    private push: PushService
 
   ) {
     this.initializeApp();
@@ -33,7 +33,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
 
-     // this.notificationsService.configuracionInicial();
+       this.push.initPush();
     });
   }
 

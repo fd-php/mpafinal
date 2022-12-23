@@ -19,9 +19,9 @@ export class RegistroPage implements OnInit {
     tipoRol: TipoRol[] = ['jugador','complejo'];
 
   newPerfil: Perfil = {
-    id: '',
-    usuario: '',
-    nombre: '',
+    uid: '',
+    email: '',
+    name: '',
     telefono: '',
     avatar: '',
     rol: 1,
@@ -40,13 +40,13 @@ export class RegistroPage implements OnInit {
     this.showLoading();
     const data = this.newPerfil;
 
-    data.id = await this.usuarioservice.getUserProfileId();
+    data.uid = await this.usuarioservice.getUserProfileId();
 
-    data.usuario = this.usuarioservice.getUserProfileMail();
+    data.email = this.usuarioservice.getUserProfileMail();
 
-    const enlace = 'Perfiles';
+    const enlace = 'users';
 
-    await this.database.altaUsuario<Perfil>(data,enlace,data.id);
+    await this.database.altaUsuario<Perfil>(data,enlace,data.uid);
 
     await  this.presentToast('Registro Exitoso',2000);
 
