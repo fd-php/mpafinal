@@ -10,8 +10,8 @@
       "redirectTo":"/perfil"
     },
     {
-      "icon": "list-outline",
-      "name": "Publicaciones",
+      "icon": "qr-code-outline",
+      "name": "Acreditacion",
       "redirectTo":"/seguro"
     },
   

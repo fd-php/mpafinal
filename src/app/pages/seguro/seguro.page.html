@@ -1,17 +1,52 @@
-<app-header titulo="Seguro"></app-header>
+<app-header titulo="Acreditacion" ></app-header>
 
 <ion-content>
     
-    <ion-card class="iont-text-center">
-        
-        <ion-card-content>
-        
+    <ion-card class="ion-text-center">
+        <ion-card-header >
+            <ion-card-subtitle>Codigo QR</ion-card-subtitle>
+            <ion-card-title >Acreditación</ion-card-title>
+        </ion-card-header>
+            
+
+        <ion-card-content [style.visibility]="contentVisibility">
+
+            <ion-item *ngIf="actPerfil.rol === 1; else tipoRol;">
             <qrcode 
                     [qrdata]="qrCodeString" 
                     [width]="256"
                     [errorCorrectionLevel]="'M'"
             ></qrcode>
-        
+        </ion-item>
+     
+
+        <ng-template #tipoRol>
+                <ion-item>
+                   <ion-button 
+                    expand="block"
+                    class="ion-margin"
+                    (click)="startScan()">
+                        Escanear RESERVA
+                    </ion-button>
+
+                </ion-item>
+                    <ion-item *ngIf="scannedResult">
+                        <ion-label class="ion-text-wrap">Resultado: {{ scannedResult }}</ion-label>
+                        <ion-buttons >
+                            <ion-button (click)="acreditar()">
+                                
+                            <ion-icon *ngIf="!acredita" slot="icon-only"  name="tennisball-outline" color="danger"></ion-icon>  
+                            <ion-icon *ngIf="acredita" slot="icon-only" color="success"  name="tennisball"></ion-icon>
+                            <ion-label ></ion-label>
+                          </ion-button>
+                       
+                         </ion-buttons>  
+                    </ion-item>
+                    
+            </ng-template>
+
+         
+
         </ion-card-content>
     
     </ion-card>

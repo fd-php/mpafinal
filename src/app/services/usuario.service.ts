@@ -18,7 +18,8 @@ export class UsuarioService {
 
 
 
-  constructor(public auth: Auth,
+  constructor(
+    public auth: Auth,
     public firestore: Firestore ) {
       this.getUserProfileId();
      }

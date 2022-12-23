@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, IonSlides, LoadingController } from '@ionic/angular';
 
@@ -12,7 +12,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class LoginPage implements OnInit {
 
-  credentials: FormGroup;
+  credentials: UntypedFormGroup;
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   @ViewChild('slidePrincipal') slides: IonSlides;
@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
 
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private loadingController: LoadingController,
     private usuarioService: UsuarioService,
     private alertController: AlertController,
